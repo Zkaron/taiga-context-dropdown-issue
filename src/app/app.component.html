@@ -1,3 +1,4 @@
+<tui-root>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
@@ -300,6 +301,15 @@
       visibility: hidden;
     }
   }
+
+  .text {
+	    display: inline-block;
+	    margin: 0.4rem 1rem;
+	}
+	 
+	.icon {
+	    cursor: context-menu;
+	}
 </style>
 
 <!-- Toolbar -->
@@ -349,6 +359,47 @@
     </svg>
 
   </div>
+
+  <h2>Taiga section</h2>
+  <p>
+    Make right click on this icon ->
+    <tui-svg
+        #dropdown="tuiDropdown"
+        src="tuiIconSettingsLarge"
+        tuiDropdownContext
+        class="icon"
+        [tuiDropdown]="content"
+    >
+        <ng-template #content>
+            <span class="text">Nothing special</span>
+            <button
+                tuiIconButton
+                size="s"
+                appearance="icon"
+                icon="tuiIconCloseLarge"
+                title="Close"
+                type="button"
+                (click)="dropdown.toggle(false)"
+            ></button>
+        </ng-template>
+    </tui-svg>
+  </p>
+
+  Dropdown will be shown text selection:
+	<p
+	    tuiDropdownSelection
+	    tuiDropdownSelectionPosition="selection"
+	    tuiDropdown="&nbsp;&nbsp;Dropdown text&nbsp;&nbsp;"
+	>
+	    Select a text to see dropdown
+	</p>
+
+  <span
+  tuiDropdownHover
+  tuiDropdown="Great Scott!"
+>
+  This is heavy!
+</span>
 
   <!-- Resources -->
   <h2>Resources</h2>
@@ -481,3 +532,5 @@
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+
+</tui-root>
